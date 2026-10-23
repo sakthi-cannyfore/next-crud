@@ -8,7 +8,11 @@ config({ path: resolve(__dirname, "../.env"), quiet: true });
 
 const app = express();
 app.disable("x-powered-by");
-app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000" }));
+const allowedOrigins = [
+  process.env.FRONTEND_URL || "http://localhost:3000",
+  "https://next-crud-one-drab.vercel.app",
+];
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json({ limit: "16kb" }));
 
 // A repository provides find, save, and delete methods for the users table.
