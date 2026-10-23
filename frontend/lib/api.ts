@@ -1,7 +1,10 @@
 export type Role = "admin" | "editor" | "viewer";
 export type User = { id: string; name: string; email: string; role: Role };
 export type UserInput = Pick<User, "name" | "email" | "role">;
-const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api").replace(/\/$/, "");
+const defaultApiUrl = process.env.NODE_ENV === "production"
+  ? "https://next-crud-1-ld5m.onrender.com/api"
+  : "http://localhost:4000/api";
+const baseUrl = (process.env.NEXT_PUBLIC_API_URL || defaultApiUrl).replace(/\/$/, "");
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   let response: Response;
