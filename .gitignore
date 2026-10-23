@@ -1,0 +1,33 @@
+# Dependencies and generated output in every workspace
+node_modules/
+dist/
+.next/
+out/
+.vercel/
+.cache/
+*.tsbuildinfo
+*.log
+
+# Local credentials; keep safe configuration templates
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+
+# Local database storage and backups
+database/.local-postgres/
+*.dump
+*.backup
+*.sql.gz
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
